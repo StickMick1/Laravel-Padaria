@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', function () {
         return "Área administrativa - apenas admins podem ver isso.";
     })->name('admin.dashboard');
+
+    Route::resource('/admin/users', UserController::class);
 });
 
 require __DIR__.'/auth.php';
