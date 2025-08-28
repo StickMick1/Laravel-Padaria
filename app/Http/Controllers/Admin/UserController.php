@@ -45,7 +45,7 @@ class UserController extends Controller
             'name' => 'required|string|max:150',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'role' => 'required|in:member, admin',
+            'role' => 'required|in:member,admin',
         ]);
 
         User::create([
@@ -53,7 +53,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-            'status' => 'active',
+            'status' => 'Ativo',
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuário criado com sucesso!');
@@ -90,7 +90,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'status' => $request->status ?? 'ativo',
+            'status' => $request->status ?? 'Ativo',
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuário atualizado com sucesso!');
@@ -101,7 +101,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->update(['status' => 'blocked']);
+        $user->update(['status' => 'Bloqueado']);
 
         return redirect()->route('users.index')->with('success', 'Usuário bloqueado!');
     }

@@ -1,3 +1,14 @@
+@if (session('success'))
+    <div 
+        x-data="{ show: true }" 
+        x-show="show" 
+        x-init="setTimeout(() => show = false, 3000)" 
+        class="mb-4 p-4 rounded-lg bg-emerald-500 text-white shadow"
+    >
+        ✅ {{ session('success') }}
+    </div>
+@endif
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800">
