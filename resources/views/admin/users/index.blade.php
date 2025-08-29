@@ -1,11 +1,12 @@
-@if (session('success'))
+@if (session('success') || session('error'))
     <div 
         x-data="{ show: true }" 
         x-show="show" 
-        x-init="setTimeout(() => show = false, 3000)" 
-        class="mb-4 p-4 rounded-lg bg-emerald-500 text-white shadow"
+        x-init="setTimeout(() => show = false, 4000)"
+        class="mb-4 p-4 rounded-lg shadow
+               {{ session('success') ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white' }}"
     >
-        ✅ {{ session('success') }}
+        ✅  {{ session('success') ?? session('error') }}
     </div>
 @endif
 
