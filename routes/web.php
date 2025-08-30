@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +29,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     })->name('admin.dashboard');
 
     Route::resource('/admin/users', UserController::class);
+    Route::resource('/admin/products', ProductController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -15,7 +15,7 @@ class AdminUserSeeder extends Seeder
             'email' => 'admin@padaria.test',
             'password' => Hash::make('password'),
             'role' => 'admin',
-            'status' => 'active',
+            'status' => 'ativo',
         ]);
     }
 }
