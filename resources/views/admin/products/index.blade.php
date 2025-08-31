@@ -28,7 +28,7 @@
                     <td class="px-4 py-2">{{ $product->name }}</td>
                     <td class="px-4 py-2">{{ $product->category->name }}</td>
                     <td class="px-4 py-2">R$ {{ number_format($product->unit_price, 2, ',', '.') }}</td>
-                    <td class="px-4 py-2">{{ $product->stock }}</td>
+                    <td class="px-4 py-2">{{ $product->current_stock }}</td>
                     <td class="px-4 py-2">{{ $product->status }}</td>
                     <td class="px-4 py-2">
                         <a href="{{ route('products.edit', $product) }}" class="text-blue-500">Editar</a>

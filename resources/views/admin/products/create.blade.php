@@ -52,8 +52,8 @@
             <div class="mb-4">
                 <label class="block">Status</label>
                 <select name="status" class="w-full border rounded px-3 py-2">
-                    <option value="active" @selected(old('status') === 'ativo')>Ativo</option>
-                    <option value="inactive" @selected(old('status') === 'inativo')>Inativo</option>
+                    <option value="ativo" @selected(old('status') === 'ativo')>Ativo</option>
+                    <option value="inativo" @selected(old('status') === 'inativo')>Inativo</option>
                 </select>
             </div>
 

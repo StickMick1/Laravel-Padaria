@@ -56,8 +56,8 @@
             <div class="mb-4">
                 <label class="block">Status</label>
                 <select name="status" class="w-full border rounded px-3 py-2">
-                    <option value="active" @selected($product->status === 'ativo')>Ativo</option>
-                    <option value="inactive" @selected($product->status === 'inativo')>Inativo</option>
+                    <option value="ativo" @selected($product->status === 'ativo')>Ativo</option>
+                    <option value="inativo" @selected($product->status === 'inativo')>Inativo</option>
                 </select>
             </div>
 

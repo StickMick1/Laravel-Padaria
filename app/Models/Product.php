@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id', 'name', 'slug', 'image_path', 'unit_price', 'status'
+        'category_id', 'name', 'slug', 'image_path', 'unit_price', 'status', 'current_stock'
     ];
 
     public function category()
@@ -29,5 +29,10 @@ class Product extends Model
         $in = $this->movements()->where('type', 'in')->sum('quantity');
         $out = $this->movements()->where('type', 'out')->sum('quantity');
         return $in - $out;
+    }
+
+    public function stockMovements()
+    {
+        return $this->hasMany(StockMovement::class);
     }
 }

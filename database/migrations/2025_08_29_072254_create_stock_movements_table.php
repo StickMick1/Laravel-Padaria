@@ -14,10 +14,9 @@ return new class extends Migration
     Schema::create('stock_movements', function (Blueprint $table) {
         $table->id();
         $table->foreignId('product_id')->constrained()->onDelete('cascade');
-        $table->enum('type', ['in', 'out']);
+        $table->enum('type', ['entrada', 'saida']);
         $table->integer('quantity');
         $table->string('reason')->nullable();
-        $table->foreignId('created_by')->constrained('users');
         $table->timestamps();
     });
 }

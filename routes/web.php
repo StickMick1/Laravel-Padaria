@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\StockMovementController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +31,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::resource('/admin/users', UserController::class);
     Route::resource('/admin/products', ProductController::class);
+    Route::resource('stockmovements', StockMovementController::class);
 });
 
 require __DIR__.'/auth.php';

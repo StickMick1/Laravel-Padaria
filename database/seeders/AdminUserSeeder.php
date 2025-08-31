@@ -13,7 +13,7 @@ class AdminUserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@padaria.test',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('123'),
             'role' => 'admin',
             'status' => 'ativo',
         ]);

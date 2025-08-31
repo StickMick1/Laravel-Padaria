@@ -10,7 +10,7 @@ class StockMovement extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_id', 'type', 'quantity', 'reason', 'created_by'
+        'product_id', 'type', 'quantity', 'reason', 'stock_before', 'stock_after'
     ];
 
     public function product()
@@ -18,8 +18,4 @@ class StockMovement extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
 }

@@ -72,6 +72,16 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produto atualizado!');
     }
 
+    public function show($id)
+    {
+        $product = Product::with('stockMovements')->findOrFail($id);
+
+        // ordena as movimentações mais recentes primeiro
+        $movements = $product->stockMovements()->orderBy('created_at', 'desc')->get();
+
+        return view('products.show', compact('product', 'movements'));
+    }
+
     public function destroy(Product $product)
     {
         $product->update(['status' => 'inativo']);
