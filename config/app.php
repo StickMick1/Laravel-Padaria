@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,6 +121,14 @@ return [
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
+    ],
+
+    'aliases' => [
+    // ...
+    'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+    'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+    'Str' => Illuminate\Support\Str::class,
+    'Auth' => Illuminate\Support\Facades\Auth::class,
     ],
 
 ];
